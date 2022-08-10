@@ -1,15 +1,57 @@
-import {Text, StyleSheet, View} from 'react-native';
-import React, {Component} from 'react';
+import { Text, StyleSheet, View, Button } from "react-native";
+import React, { Component } from "react";
 
-export default class Home extends Component {
-  render() {
-    return (
-      <View>
-        <Text>Home</Text>
-        <Text>This is home page</Text>
-      </View>
-    );
-  }
-}
+const Home = ({ navigation, route }) => {
+  React.useEffect(() => {
+    if (route.params?.post) {
+      // Post updated, do something with `route.params.post`
+      // For example, send the post to the server
+    }
+  }, [route.params?.post]);
+  return (
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Text>Home</Text>
+      <Text>This is home page</Text>
+      <Button
+        title="Go to Profile"
+        // onPress={() => navigation.navigate("Profile")}
+
+        // Passing params to nested navigators​
+        onPress={() =>
+          navigation.navigate("Profile", {
+            screen: "Settings",
+            params: { user: "jane" },
+            user: {
+              id: "jane",
+              firstName: "Jane",
+              lastName: "Done",
+              age: 25,
+            },
+          })
+        }
+      />
+
+      <Button
+        title="Go to Details"
+        onPress={() => {
+          /* 1. Navigate to the Details route with params */
+          navigation.navigate("DetailsScreen", {
+            itemId: 86,
+            otherParam: "anything you want here",
+          });
+        }}
+      />
+
+      {/* Passing params to a previous screen */}
+      <Button
+        title="Create post"
+        onPress={() => navigation.navigate("CreatePostScreen")}
+      />
+      <Text style={{ margin: 10 }}>Post: {route.params?.post}</Text>
+    </View>
+  );
+};
+
+export default Home;
 
 const styles = StyleSheet.create({});
