@@ -68,6 +68,10 @@ const Home = ({ navigation, route }) => {
         title="DrawerNavigation"
         onPress={() => navigation.navigate("DrawerNavigation")}
       />
+      <Button
+        title="NavigationLifecycle"
+        onPress={() => navigation.navigate("NavigationLifecycle")}
+      />
       <Text style={{ margin: 10 }}>Post: {route.params?.post}</Text>
     </View>
   );

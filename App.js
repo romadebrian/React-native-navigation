@@ -8,6 +8,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CreatePostScreen from "./src/page/CreatePostScreen";
 import NestedNavigator from "./src/page/NestedNavigator";
 import DrawerNavigation from "./src/page/DrawerNavigation";
+import NavigationLifecycle from "./src/page/NavigationLifecycle";
 
 const Stack = createNativeStackNavigator();
 
@@ -103,6 +104,10 @@ const App = () => {
         <Stack.Screen name="CreatePostScreen" component={CreatePostScreen} />
         <Stack.Screen name="NestedNavigator" component={NestedNavigator} />
         <Stack.Screen name="DrawerNavigation" component={DrawerNavigation} />
+        <Stack.Screen
+          name="NavigationLifecycle"
+          component={NavigationLifecycle}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

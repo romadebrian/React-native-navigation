@@ -2,9 +2,9 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import page1 from "../../assets/components/page1";
-import page2 from "../../assets/components/page3";
-import page3 from "../../assets/components/page3";
+import page1 from "../../assets/components/Page1";
+import page2 from "../../assets/components/Page3";
+import page3 from "../../assets/components/Page3";
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();

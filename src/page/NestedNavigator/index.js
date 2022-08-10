@@ -5,8 +5,8 @@ import React from "react";
 import DetailsScreen from "../DetailsScreen";
 import CreatePostScreen from "../CreatePostScreen";
 import Home from "../Home";
-import page1 from "../../assets/components/page1";
-import page2 from "../../assets/components/page2";
+import page1 from "../../assets/components/Page1";
+import page2 from "../../assets/components/Page2";
 
 const Tab = createBottomTabNavigator();
 
