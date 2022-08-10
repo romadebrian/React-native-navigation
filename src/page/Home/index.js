@@ -2,15 +2,26 @@ import { Text, StyleSheet, View, Button } from "react-native";
 import React, { Component } from "react";
 
 const Home = ({ navigation, route }) => {
-  React.useEffect(() => {
-    if (route.params?.post) {
-      // Post updated, do something with `route.params.post`
-      // For example, send the post to the server
-    }
-  }, [route.params?.post]);
+  const [count, setCount] = React.useState(0);
+
+  //   React.useEffect(() => {
+  //     if (route.params?.post) {
+  //       // Post updated, do something with `route.params.post`
+  //       // For example, send the post to the server
+  //     }
+  //   }, [route.params?.post]);
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <Button onPress={() => setCount((c) => c + 1)} title="Update count" />
+      ),
+    });
+  }, [navigation]);
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Home</Text>
+      <Text>Count: {count}</Text>
       <Text>This is home page</Text>
       <Button
         title="Go to Profile"

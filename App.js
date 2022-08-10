@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Button } from "react-native";
 import React, { useState } from "react";
 import Home from "./src/page/Home";
 import Profile from "./src/page/Profile/Index";
@@ -30,7 +30,6 @@ const App = () => {
         // screenOptions={{ headerTitle: (props) => <LogoTitle {...props} /> }}
       >
         {/* <Stack.Screen name="Home" component={Home} /> */}
-
         {/* Adjusting header styles */}
         {/* <Stack.Screen
           name="Home"
@@ -48,28 +47,55 @@ const App = () => {
         /> */}
 
         {/* Replacing the title with a custom component */}
+        {/* <Stack.Screen
+          name="Home"
+          component={Home}
+          // options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+        /> */}
+
+        {/* Adding a button to the header */}
+        {/* <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            headerTitle: (props) => <LogoTitle {...props} />,
+            headerRight: () => (
+              <Button
+                onPress={() => alert("This is a button!")}
+                title="Info"
+                color="#fff"
+              />
+            ),
+          }}
+        /> */}
+
+        {/* Header interaction with its screen component */}
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+          options={({ navigation, route }) => ({
+            headerTitle: (props) => <LogoTitle {...props} />,
+          })}
         />
 
         <Stack.Screen name="Profile">
           {(props) => <Profile {...props} extraData={"Roma Debrian"} />}
         </Stack.Screen>
-
         {/* Using params in the title */}
         {/* <Stack.Screen
           name="Profile"
           component={ProfileScreen}
           options={({ route }) => ({ title: route.params.name })}
         /> */}
-
         {/* Initial params */}
         <Stack.Screen
           name="DetailsScreen"
           component={DetailsScreen}
           initialParams={{ itemId: 42 }}
+          options={{
+            headerBackVisible: false,
+            headerTitle: (props) => <LogoTitle {...props} />,
+          }}
         />
         <Stack.Screen name="CreatePostScreen" component={CreatePostScreen} />
       </Stack.Navigator>
