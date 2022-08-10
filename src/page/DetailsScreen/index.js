@@ -20,6 +20,7 @@ function DetailsScreen({ route, navigation }) {
       <Button title="Go to Home" onPress={() => navigation.navigate("Home")} />
       <Button title="Go back" onPress={() => navigation.goBack()} />
 
+      {/* Updating params */}
       <Button
         title="Test Update Params"
         onPress={() =>

@@ -22,6 +22,13 @@ const Profile = ({ navigation, extraData, route }) => {
         title="Go back to first screen in stack"
         onPress={() => navigation.popToTop()}
       />
+
+      {/* Updating options with setOptions */}
+      <Button
+        title="Update the title"
+        onPress={() => navigation.setOptions({ title: "Updated!" })}
+      />
+
       <Button
         title="Detail"
         onPress={() => navigation.navigate("DetailsScreen")}

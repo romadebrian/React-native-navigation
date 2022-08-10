@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import React, { useState } from "react";
 import Home from "./src/page/Home";
 import Profile from "./src/page/Profile/Index";
@@ -13,12 +13,57 @@ const App = () => {
   cosnt = [dataUser] = useState("Roma Debrian");
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
+      <Stack.Navigator
+        initialRouteName="Home"
+
+        // Sharing common options across screens
+        // screenOptions={{
+        //   headerStyle: {
+        //     backgroundColor: "#f4511e",
+        //   },
+        //   headerTintColor: "#fff",
+        //   headerTitleStyle: {
+        //     fontWeight: "bold",
+        //   },
+        // }}
+
+        // screenOptions={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+      >
+        {/* <Stack.Screen name="Home" component={Home} /> */}
+
+        {/* Adjusting header styles */}
+        {/* <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            title: "My home",
+            headerStyle: {
+              backgroundColor: "#f4511e",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
+        /> */}
+
+        {/* Replacing the title with a custom component */}
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+        />
 
         <Stack.Screen name="Profile">
           {(props) => <Profile {...props} extraData={"Roma Debrian"} />}
         </Stack.Screen>
+
+        {/* Using params in the title */}
+        {/* <Stack.Screen
+          name="Profile"
+          component={ProfileScreen}
+          options={({ route }) => ({ title: route.params.name })}
+        /> */}
 
         {/* Initial params */}
         <Stack.Screen
@@ -31,6 +76,16 @@ const App = () => {
     </NavigationContainer>
   );
 };
+
+// Replacing the title with a custom component
+function LogoTitle() {
+  return (
+    <Image
+      style={{ width: 50, height: 50 }}
+      source={require("./src/assets/img/react-native-logo.png.png")}
+    />
+  );
+}
 
 export default App;
 
