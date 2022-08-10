@@ -58,6 +58,16 @@ const Home = ({ navigation, route }) => {
         title="Create post"
         onPress={() => navigation.navigate("CreatePostScreen")}
       />
+
+      <Button
+        title="NestedNavigator"
+        onPress={() => navigation.navigate("NestedNavigator")}
+      />
+
+      <Button
+        title="DrawerNavigation"
+        onPress={() => navigation.navigate("DrawerNavigation")}
+      />
       <Text style={{ margin: 10 }}>Post: {route.params?.post}</Text>
     </View>
   );
